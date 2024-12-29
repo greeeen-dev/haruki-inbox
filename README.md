@@ -1,6 +1,9 @@
 # Haruki Inbox
 A sleek and modern skin for Thunderbird.
 
+> [!CAUTION]
+> Haruki is still under heavy development, things may change/break very often!
+
 ## What is Haruki Inbox?
 Haruki Inbox (or Haruki, for short) is a skin made for [Thunderbird](https://www.thunderbird.net) that
 brings modern and polished aesthetics. It also shares some of [Natsumi

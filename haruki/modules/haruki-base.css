@@ -1,0 +1,375 @@
+/*
+
+Haruki Inbox - A sleek and modern skin for Thunderbird.
+
+Copyright (c) 2025-present Green (@greeeen-dev)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+
+/* ==== Base UI ==== */
+
+/* Background*/
+
+:root {
+  html > body {
+    background: var(--haruki-colors-main-background-transparent) !important;
+  }
+
+  &[sizemode="fullscreen"] {
+    > body {
+      background: var(--haruki-colors-main-background) !important;
+    }
+  }
+
+  /*noinspection CssInvalidMediaFeature*/
+  @media not (moz-platform: macos) {
+    /*noinspection CssUnknownProperty*/
+    > body {
+      background: var(--haruki-colors-main-background) !important;
+    }
+  }
+}
+
+/* Transparency effect */
+
+#spacesToolbar, #titlebar, #tabs-toolbar, #tabpanelcontainer, .contentTabInstance,
+.icons-beside-text, #messengerBody {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+
+  /*noinspection CssInvalidMediaFeature*/
+  @media (-moz-platform: macos) {
+    -moz-appearance: -moz-window-titlebar !important;
+  }
+}
+
+/* Sidebar buttons */
+
+/*noinspection CssUnresolvedCustomProperty*/
+#spacesToolbar {
+  width: calc(var(--spaces-icon-size) + 2 * var(--spaces-button-padding) + var(--messenger-body-border)) !important;
+
+  .spaces-toolbar-container {
+    .spaces-toolbar-button {
+      padding: 4px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+      border-radius: 6px !important;
+      transition: background 0.2s ease !important;
+
+      &:hover {
+        background: var(--toolbarbutton-hover-background) !important;
+      }
+
+      &.current {
+        background: var(--toolbarbutton-active-background) !important;
+      }
+
+      img {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        img {
+          filter: invert();
+        }
+      }
+    }
+  }
+}
+
+/* Topbar buttons */
+
+#titlebar {
+  #unifiedToolbar {
+    #unifiedToolbarContent .unified-toolbar-button {
+      height: 18px !important;
+      padding: 4px !important;
+      min-height: 18px !important;
+      max-height: 18px !important;
+      box-sizing: content-box !important;
+      border: none !important;
+      border-radius: 6px !important;
+      transition: background 0.2s ease !important;
+
+      &:hover {
+        background: var(--toolbarbutton-hover-background) !important;
+      }
+
+      img {
+        width: 18px !important;
+        height: 18px !important;
+        margin-right: 4px !important;
+      }
+
+      &[extension] {
+        width: 18px !important;
+        background-image: none !important;
+
+        img {
+          margin: 0 !important;
+        }
+
+        .button-label {
+          display: none !important;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &:not([extension]) img {
+          filter: invert();
+        }
+      }
+    }
+  }
+}
+
+/* Remove margin */
+
+#tabmail-tabs {
+  margin-inline-start: 0 !important;
+}
+
+/* Rounded corners (like Zen Browser) */
+
+/*noinspection CssInvalidFunction*/
+.deck-selected:has(.contentTabInstance), #messagePane {
+  margin: 5px 5px 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)) !important;
+}
+
+#messagePane {
+  clip-path: inset(0% 0% 0% 0% round 10px) !important;
+}
+
+.deck-selected:has(.contentTabToolbox) {
+  browser[type="content"] {
+    clip-path: inset(0% 0% 0% 0% round 0 0 10px 10px) !important;
+  }
+}
+
+.contentTabToolbox {
+  clip-path: inset(0% 0% 0% 0% round 10px 10px 0 0) !important;
+}
+
+#tabpanelcontainer .deck-selected {
+  overflow: visible !important;
+}
+
+/* Today Pane */
+
+/*noinspection CssInvalidFunction*/
+#today-pane-panel {
+  margin: 5px 5px 0 !important;
+  border-radius: 10px !important;
+  background: var(--haruki-glass-background) !important;
+  border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  overflow: hidden !important;
+
+  /*noinspection CssInvalidFunction*/
+  .sidebar-header, #unifinder-todo-tree, #calendar-task-tree-detail {
+    background: transparent !important;
+    border-color: light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  }
+
+  /*noinspection CssInvalidFunction*/
+  treecols treecol, .tree-columnpicker-button {
+    border-bottom: none !important;
+    border-color: light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  }
+}
+
+/* Status bar */
+
+/*noinspection CssInvalidFunction*/
+#status-bar {
+  background: transparent !important;
+  margin: 5px !important;
+  padding: 2px !important;
+  border-radius: 10px !important;
+  border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  text-shadow: none !important;
+  overflow: hidden !important;
+
+  .statusbarpanel {
+    padding: 0 !important;
+  }
+
+  #calendar-status-todaypane-button {
+    border: none !important;
+    transition: background 0.2s ease !important;
+    margin-top: 0 !important;
+    border-radius: 6px !important;
+
+    &:hover {
+      background: var(--toolbarbutton-hover-background) !important;
+    }
+
+    &:active, &[checked="true"] {
+      background: var(--toolbarbutton-active-background) !important;
+    }
+
+    .toolbarbutton-icon-end {
+      display: none !important;
+    }
+
+    stack {
+      img {
+        opacity: 0 !important;
+      }
+
+      &::before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background-image: url('../icons/calendar-empty.svg') !important;
+        background-size: 18px;
+        background-position: center;
+        position: absolute;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        &::before {
+          filter: invert();
+        }
+      }
+
+      .toolbarbutton-day-text {
+        font-weight: normal !important;
+        font-family: unset !important;
+        margin-block: unset !important;
+        margin-bottom: 2.5px !important;
+        font-size: 5pt !important;
+      }
+    }
+  }
+}
+
+/* Icons */
+
+#mailButton img {
+  content: url('../icons/mail.svg') !important;
+}
+
+#addressBookButton img {
+  content: url('../icons/contacts.svg') !important;
+}
+
+#calendarButton img {
+  content: url('../icons/calendar.svg') !important;
+}
+
+#tasksButton img {
+  content: url('../icons/task.svg') !important;
+}
+
+#chatButton img {
+  content: url('../icons/chat.svg') !important;
+}
+
+#spacesToolbarAddonsOverflowButton img {
+  content: url('../icons/arrow-down.svg') !important;
+}
+
+#settingsButton img {
+  content: url('../icons/settings.svg') !important;
+}
+
+#collapseButton img {
+  content: url('../icons/arrow-left.svg') !important;
+}
+
+#unifiedToolbarContent .synchronize img {
+  content: url('../icons/refresh.svg') !important;
+}
+
+#unifiedToolbarContent .new-event img {
+  content: url('../icons/calendar-add.svg') !important;
+}
+
+#unifiedToolbarContent .new-task img {
+  content: url('../icons/task-add.svg') !important;
+}
+
+#unifiedToolbarContent .edit-event img {
+  content: url('../icons/edit.svg') !important;
+}
+
+#unifiedToolbarContent .delete-event img {
+  content: url('../icons/trash.svg') !important;
+}
+
+#offline-status {
+  transition: background 0.2s ease !important;
+  border-radius: 6px !important;
+
+  &:hover {
+    background: var(--toolbarbutton-hover-background) !important;
+  }
+
+  &:active, &[open] {
+    background: var(--toolbarbutton-active-background) !important;
+  }
+
+  image {
+    width: 16px !important;
+    height: 16px !important;
+    list-style-image: url('../icons/online.svg') !important;
+
+    @media (prefers-color-scheme: dark) {
+      filter: invert();
+    }
+  }
+
+  &[offline] {
+    image {
+      list-style-image: url('../icons/offline.svg') !important;
+    }
+  }
+}
+
+#button-appmenu {
+  padding: 2px !important;
+  min-width: unset !important;
+  border: none !important;
+
+  &:hover {
+    background: var(--toolbarbutton-hover-background) !important;
+  }
+
+  &:active, &[open] {
+    background: var(--toolbarbutton-active-background) !important;
+  }
+
+  image {
+    width: 18px !important;
+    height: 18px !important;
+    list-style-image: url('../icons/menu.svg') !important;
+
+    @media (prefers-color-scheme: dark) {
+      filter: invert();
+    }
+  }
+}

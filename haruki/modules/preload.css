@@ -1,0 +1,54 @@
+/*
+
+Haruki Inbox - A sleek and modern skin for Thunderbird.
+
+Copyright (c) 2025-present Green (@greeeen-dev)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
+
+* {
+  --haruki-primary-color: var(--haruki-accent-color, #aac7ff);
+  --haruki-colors-primary: color-mix(in srgb, var(--haruki-primary-color) 50%, black 50%);
+  --haruki-colors-secondary: color-mix(in srgb, var(--haruki-colors-primary) 20%, white 80%);
+  --haruki-colors-tertiary: color-mix(in srgb, var(--haruki-primary-color) 2%, white 98%);
+  --haruki-colors-primary-foreground: color-mix(in srgb, var(--haruki-primary-color) 80%, white 20%);
+  --haruki-colors-main-background: white;
+  --haruki-colors-main-background-transparent: color-mix(in srgb, var(--haruki-colors-main-background) 35%, transparent);
+  --toolbarbutton-active-background: rgba(255, 255, 255, 0.9);
+  --toolbarbutton-hover-background: color-mix(in srgb, #202020 10%, transparent);
+
+  @media (prefers-color-scheme: dark) {
+    --haruki-colors-primary: color-mix(in srgb, var(--haruki-primary-color) 50%, black 50%);
+    --haruki-colors-secondary: color-mix(in srgb, var(--haruki-primary-color) 40%, black 60%);
+    --haruki-colors-tertiary: color-mix(in srgb, var(--haruki-primary-color) 15%, black 85%);
+    --haruki-colors-primary-foreground: color-mix(in srgb, var(--haruki-primary-color) 80%, white 20%);
+    --haruki-colors-main-background: color-mix(in srgb, var(--haruki-primary-color) 15%, black 85%);
+    --haruki-colors-main-background-transparent: color-mix(in srgb, var(--haruki-colors-main-background) 50%, transparent);
+    --toolbarbutton-active-background: color-mix(in srgb, var(--haruki-primary-color) 50%, rgba(255, 255, 255, .1));
+    --toolbarbutton-hover-background: color-mix(in srgb, #ebebeb 10%, transparent);
+  }
+
+  /* Glass effect */
+  --haruki-glass-background: color-mix(in srgb, var(--haruki-colors-secondary) 75%, transparent);
+  --haruki-glass-blur-radius: var(--glass-blur-radius, 10px);
+  --haruki-glass-shadow-size: var(--glass-shadow-size, 10px);
+  --haruki-glass-shadow-opacity: var(--glass-shadow-opacity, 75%);
+}

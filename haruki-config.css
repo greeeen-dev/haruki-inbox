@@ -1,0 +1,16 @@
+/* ==== Config ==== */
+
+/*
+Feel free to change these values to whatever you want, as long
+as they use the correct format.
+*/
+
+* {
+  /* Accent color */
+  --haruki-accent-color: #aac7ff;
+
+  /* Midori Glass Effect */
+  --glass-blur-radius: 10px;
+  --glass-shadow-size: 10px;
+  --glass-shadow-opacity: 75%;
+}
